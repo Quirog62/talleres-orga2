@@ -1,0 +1,19 @@
+1.  Nos referimos a los modos de operación. El modo real ofrece el entorno de programación 8086. Además, este modo de operación está caracterizado por 20 bits de espacio de direcciones segmentado (significando que solamente se puede direccionar 1 MB de memoria), acceso directo del software a las rutinas del BIOS y el hardware periférico, y no tiene conceptos de protección de memoria o multitarea a nivel de hardware. Todos los procesadores x86 inician con el modo de operación real.
+
+El modo de operación protegido es el modo nativo del procesador. El modo protegido tiene un número de nuevas características diseñadas para mejorar la multitarea y la estabilidad del sistema, tales como la protección de memoria, y soporte de hardware para memoria virtual como también la conmutación de tarea y además ofrece retrocompatibilidad.
+
+2. El modo protegido es util para ofrecer protección a sectores de la memoria donde se ubiquen datos sensibles (por ejemplo, el kernel), como asi también permitir el multitasking y ofrecer un mejor rendimiento gracias a la paginación o la segmentación.
+
+3. GDT (Global Descriptor Table) es una estructura de dato que se usa para definir las caracteristicas de varias segmentos de memoria durante la ejecución de un programa, incluyendo la dirección base, el tamaño, y los privilegios de acceso tales como la escritura o la ejecución. Para ver el formato, mirar la figura 3-8. 
+
+    Limit: Nos dice el maximo valor direccionable 
+    Base: Contiene la dirección lineal donde comienza el segmento.
+    G: Es el flag de granuralidad. Cuando el flag de granuralidad esta vacio, el segmento es interpretado en unidades de bytes. Cuando el flag esta puesto, 
+    el limite del segmento es de 4kbyte de unidades. 
+    P: Es un flag que indica si el segmento esta presente en la memoria (set) o no esta presente (clear)
+    DPL: Nivel de privilegio del descriptor. Puede tener un valor desde 0 hasta 3, donde 0 es la nivel de maxima prioridad. Esto es usado para el control de acceso al segmento.
+    S: Tipo de descriptor (0 = sistema, 1 = codigo o dato)
+    
+4. Decimal 10, en binario 1 0 1 0.
+
+5. 

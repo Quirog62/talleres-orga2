@@ -1,0 +1,2 @@
+b) Se mapea ya que no podemos saber si existen las páginas y se desmapea, luego de realizar la copia, para evitar conflictos con alguna página, dejo las estructuras como estaban en su estado original. SRC_VIRT_PAGE y DST_VIR_PAGE son las direcciones virtuales que hay que traducir para acceder a las páginas que quiero copiar.
+

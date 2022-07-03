@@ -1,0 +1,23 @@
+c) El bit D(dirty) es seteado por unidad de memoria del
+procesador cuando se escribe en la página, se limpia por soft.
+El bit A(accessed) es seteado por unidad de memoria del
+procesador cuando se escribe o lee en la página, se limpia por
+soft.
+El PCD (cache disabled) hace que la página no se almacene
+en memoria rápida.
+PWT (write through) hace que al escribir la escritura se
+refleje en cache y memoria a la vez, sino sólo se actualiza la
+memoria cuando se desaloja la lı́nea de caché.
+U/S indica si la página puede ser accedida por el espacio de
+usuario (bit en 1) o sólo supervisor/kernel (bit en 0).
+R/W indica si la página puede leerse y escribirse (bit en 1) o
+sólo leerse (bit en 0).
+P indica si la página se encuentra cargada en memoria o no.
+
+d)  VIRT_PAGE_OFFSET(X) es la dirección fisica.
+    VIRT_PAGE_TABLE(X) es el indice de la page table.
+    VIRT_PAGE_DIR(X) es el índice de la page directory.
+    CR3_TO_PAGE_DIR(X) es la dirección de la page directory.
+    MMU_ENTRY_PADDR(X) es 
+    
+f) EL TLB se usa para almacenar los bits de la dirección lineal que se utilizan para acceder al

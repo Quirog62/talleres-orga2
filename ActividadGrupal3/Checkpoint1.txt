@@ -1,0 +1,5 @@
+a.  Se alinea respecto al tamaño del atributo mas grande. El desplazamiento se calcula como un multiplo del tamaño del atributo con respecto a la base de la estructura.
+
+b.  Se calcula como la suma del tamaño de los atributos. 
+
+c.  

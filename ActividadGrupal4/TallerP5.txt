@@ -1,0 +1,39 @@
+﻿Primera parte: Definiendo la GDT.
+
+1.
+Se refiere a modos de operacion.
+Particularidades:
+Modo real: es de 16 bits, es el modo en el que arrancan todos los x86. Solo se puede direccionar hasta 1 MB de memoria
+Modo Protegido: Multitasking, pasa a 32 bits, se puede direccionar hasta 4GB, y hay proteccion de memoria(metodo para controlar el uso de memoria, protege sectores delicados de la memoria, como el Kernel). Uno de estos metodos es segmentacion.
+
+2.
+EL modo real es el modo de arranque por compatibilidad, las caracteristicas del modo protegido son mejores que las de modo real para tener un sistema operativo. Posibles desventajas: modificar el Kernel accidentalmente, limitacion de 16 bits (menos espacio de direccionamiento).
+
+3.
+La GDT es una tabla que contiene estructuras de datos que proveen la ubicacion y el tamaño de un segmento. Ver figura 3-8.
+Limit: Maximo offset que puede tener un byte direccionable dentro del segmento.
+Base: Direccion a partir de la cual se despliega en forma continua el segmento.
+G: Flag de granuralidad establece la unidad de medida del campo limite. Si G = 0, el maximo offset de un byte es igual a  limite . Si G = 1, el maximo offset es igual a limite * 0x1000 +0xFFF.
+P: Present. Cuando es ’1’ el segmento correspondiente esta ́presente en la memoria RAM. Si es ’0’, el segmento esta en la memoria virtual (disco).
+
+?
+
+DPL: Descriptor Priviledge Level. Nivel de privilegio que debe tener el segmento que contiene el codigo que pretende acceder a este segmento. Nivel 0 es el Kernel, nivel 3 es de las aplicaciones.
+S: Permite administrar dos clases de segmentos:
+Segmentos de Codigo o Datos (1).
+Segmentos de Sistema (0)
+Segmentos del sistema en general se refieren a mecanismos de uso exclusivo del sistema operativo.
+
+4.
+Decimal: 10.
+1 0 1 0 Code Execute/Read
+
+6.
+extern gdt_entry_t gdt[]: es un array que contiene variables del tipo gdt_entry_t ( que es un struct con limit, base, type, s, etc...)
+extern gdt_descriptor_t GDT_DESC: es una variable de tipo gdt_descriptor_t, que contiene la longitud (16 bits) y el address (32 bits).
+
+7. Completar
+
+8. LGDT carga valores en el GDTR.
+Es la estructura gdt_descriptor_t, que se inicializa en gdt.h
+

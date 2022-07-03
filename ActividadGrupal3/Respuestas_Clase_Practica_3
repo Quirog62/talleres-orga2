@@ -1,0 +1,43 @@
+Clase Practica 3
+
+
+Checkpoint 1:
+
+a) El tamaño de la estructura esta alineado al tamaño del atributo mas grande. Cada atributo esta alineado segun su tamaño. Para cada atributo se desplaza un múltiplo del tamaño de cada uno de ellos con respecto del comienzo de la estructura.
+
+b) Se calcula sumando los tamaños de sus atributos, sin padding. Para uno no empaquetado seria la cantidad de elementos multiplicado por el mas grande.
+
+c) La convención de llamada indica como realizar una llamada a función. Mas especificamente, es un esquema para ponerse de acuerdo al determinar la manera en que las subrutinas reciben parámetros de su llamador y devuelven un resultado. Se usa la convención C de 32 y de 64 (ver parte 5 del cheatsheet y paginas 20, 22 y 24 del segundo pdf de la clase).
+
+d) En C el responsable es el programador y en ASM el sistema operativo (Preguntar por este item).
+
+e) A la región de la pila comprendida entre los parámetros recibidos y el tope de pila actual le llamaremos stack frame.
+
+Prólogo: es donde se reserva espacio en la pila para datos
+temporales (se agrega padding para mantenerla alineada a 16
+bytes) y se preserva los valores de los registros no volátiles.
+Se hace el sub para alinear, los push y se guarda el RBP.
+
+Epílogo: es donde restauramos los valores de los registros no
+volátiles y devolvemos la pila a su estado inicial.
+Aquí se hacen los pops y se restaura el RBP anterior.
+
+f) Las variables temporales se almacena en la pila y se pushean. Preguntar a que se refiere la pregunta.
+
+g) Alinear a 16 bytes. Estaría alineada a 8 bytes ya que antes de ejecutar la primera instrucción de la función llamada, tuve que pushear el RBP de la función llamadora en el stack (y ocupa 8 bytes).
+(Chequear).
+
+h) Habría que actualizar nuestro codigo para que cumpla el nuevo contrato establecido, sino las funciones tendrían un comportamiento indeseado.
+
+
+Checkpoint 2:
+
+a)
+
+alternate_sum_4: suma x1, resta x2, suma x3 y resta x4.
+
+sum_z: dado un arreglo de un struct (de 3 enteros x, y, z), suma los valores de los z's y los devuelve en eax.
+
+
+arr[rdi], por que esta esta con esta sintaxis?
+Preguntar: alternate_sum_4 empieza alineada a 8 y no a 16 bytes.
